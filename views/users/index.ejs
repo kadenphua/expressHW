@@ -1,0 +1,31 @@
+<%# include relative path to the partials file %>
+<% include ../partials/header.ejs  %>
+<h1>ALL Users Details</h1>
+
+<h2>
+  <%= name %>
+</h2>
+
+<h3>Using basic for loop</h3>
+<ul>
+    <% for (var i = 0; i < usersArr.length; i++) { %>
+      <li>
+        Users Name: <%= usersArr[i].name %><br>
+        Users password: <%= usersArr[i].password %>
+        <br><br>
+      </li>
+    <% } %>
+</ul>
+
+<h3>Using foreach</h3>
+<ul>
+    <% usersArr.forEach(function(movie) { %>
+      <li>
+        Users Name: <%= movie.name %><br>
+        Users password: <%= movie.password %>
+        <br><br>
+      </li>
+    <% }) %>
+</ul>
+
+<% include ../partials/footer.ejs  %>
