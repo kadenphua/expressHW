@@ -1,6 +1,6 @@
 <%# include relative path to the partials file %>
 <% include ../partials/header.ejs  %>
-<h1>ALL Users Details</h1>
+<h1>ALL Admin Details</h1>
 
 <h2>
   <%= name %>
@@ -8,23 +8,33 @@
 
 <h3>Using basic for loop</h3>
 <ul>
-    <% for (var i = 0; i < usersArr.length; i++) { %>
-      <li>
-        Users Name: <%= usersArr[i].name %><br>
-        Users password: <%= usersArr[i].password %>
-        <br><br>
-      </li>
+    <% for (var i = 0; i < adminArr.length; i++) { %>
+      <ul>
+        <li>
+        ID: <%= adminArr[i].id %></li>
+        <li>
+        Admin Name: <%= adminArr[i].name %></li>
+        <li>
+        Admin Password: <%= adminArr[i].password %></li>
+        <li>
+        Admin Email: <%= adminArr[i].email %></li>
+      </ul>
     <% } %>
 </ul>
 
 <h3>Using foreach</h3>
 <ul>
-    <% usersArr.forEach(function(movie) { %>
-      <li>
-        Users Name: <%= movie.name %><br>
-        Users password: <%= movie.password %>
-        <br><br>
-      </li>
+    <% adminArr.forEach(function(movie) { %>
+      <ul>
+        <li>
+        ID: <%= movie.id %></li>
+        <li>
+        Admin Name: <%= movie.name %></li>
+        <li>
+        Admin password: <%= movie.password %></li>
+        <li>
+        Admin Email: <%= movie.email %></li>
+      </ul>
     <% }) %>
 </ul>
 

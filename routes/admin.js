@@ -1,37 +1,40 @@
 var express = require('express')
 var router = express.Router()
 
-var Users = require('../models/users')
+var Admin = require('../models/admin')
 
-// All the GET requests
 router.get('/', function (req, res) {
-  Users.find({}, function (err, usersArr) {
+  Admin.find({}, function (err, adminArr) {
     if (err) throw new Error(err)
-    res.render('users/index', {
-      usersArr: usersArr,
+    res.render('admin/index', {
+      adminArr: adminArr,
       name: 'test'
     })
   })
 }).get('/new', function (req, res) {
-  res.render('users/new')
+  res.render('admin/new')
 }).get('/:id', function (req, res) {
-  res.send('ROUTES GOES HERE INSTEAD')
+  Admin.findById(req.params.id, function (err, admin) {
+    res.send(admin)
+  })
 }).get('/:id/edit', function (req, res) {
-  var usersdata = {
+  var admindata = {
     name: 'glen chooooooo',
-    password: 'glen123'
+    password: 'glen123',
+    email: 'glen@gmail.com'
   }
 
-  res.render('users/edit', usersdata)
+  res.render('admin/edit', admindata)
   // res.send('edit user\'s ' + req.params.id + ' details')
 })
 
 // the only POST request
 router.post('/', function (req, res) {
 
-  var newUsers = new Users({
-    name: req.body.newusers.name,
-    password: req.body.newusers.password
+  var newAdmin = new Admin({
+    name: req.body.newadmin.name,
+    password: req.body.newadmin.password,
+    email: req.body.newadmin.email
   })
 
   newAdmin.save(function (err) {

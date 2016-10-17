@@ -1,20 +1,20 @@
 <%# include relative path to the partials file %>
 <% include ../partials/header.ejs  %>
 
-<h1>NEW USER FORM</h1>
+<h1>NEW ADMIN FORM</h1>
 
-<form method="post" action="/users">
+<form method="post" action="/admin">
   <div class="form-group">
-    <label for="name">Username</label>
-    <input type="text" class="form-control" id="name" name="newusers[name]" placeholder="Put your username">
+    <label for="name">Admin Username</label>
+    <input type="text" class="form-control" id="name" name="newadmin[name]" placeholder="Put your username">
   </div>
   <div class="form-group">
-    <label for="email">Password</label>
-    <input type="email" class="form-control" id="password" name="newusers[password]" placeholder="Key in your password">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="newadmin[password]" placeholder="Key in your password">
   </div>
   <div class="form-group">
-    <label for="email">Password</label>
-    <input type="email" class="form-control" id="email" name="newusers[email]" placeholder="Key in your email">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="newadmin[email]" placeholder="Key in your email">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
